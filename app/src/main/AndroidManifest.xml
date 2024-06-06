@@ -13,6 +13,18 @@
         android:theme="@style/Theme.AplicacionCRUDDiana"
         tools:targetApi="31">
         <activity
+            android:name=".activity_ticket_card"
+            android:exported="false" />
+        <activity
+            android:name=".activity_my_tickets"
+            android:exported="false" />
+        <activity
+            android:name=".activity_tickets_form"
+            android:exported="false" />
+        <activity
+            android:name=".activity_register"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -21,6 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
