@@ -37,7 +37,11 @@ class activity_register : AppCompatActivity() {
             val password = txtPassword.text.toString()
             val confirmPassword = txtConfirmPassword.text.toString()
 
-            if(password != confirmPassword){
+            if(txtName.text.isEmpty() || txtEmail.text.isEmpty() || txtPassword.text.isEmpty()){
+                runOnUiThread {
+                    Toast.makeText(this, "Please fill out all the data 😮", Toast.LENGTH_LONG).show()
+                }
+            } else if(password != confirmPassword){
                 //Mostrar mensaje de error, para hacer mensajes desde un corrutina debe ejecutarse en el principal, por eso estoy utilizando "runOnUiThread :)"
                 runOnUiThread {
                     Toast.makeText(this, "The passwords don't match 😅", Toast.LENGTH_LONG).show()
@@ -54,6 +58,10 @@ class activity_register : AppCompatActivity() {
                     addUser.executeQuery()
 
                     runOnUiThread {
+                        txtName.text.clear()
+                        txtEmail.text.clear()
+                        txtPassword.text.clear()
+                        txtConfirmPassword.text.clear()
                         Toast.makeText(this@activity_register, "Registered user successfully 🎉", Toast.LENGTH_LONG).show()
                     }
                 }
