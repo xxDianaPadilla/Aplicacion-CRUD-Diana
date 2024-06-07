@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/txtTicketNumber"
             android:layout_width="370dp"
             android:layout_height="46dp"
             android:layout_marginTop="16dp"
@@ -62,7 +62,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/txtTitleTicket"
             android:layout_width="370dp"
             android:layout_height="46dp"
             android:layout_marginTop="20dp"
@@ -75,10 +75,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+            app:layout_constraintTop_toBottomOf="@+id/txtTicketNumber" />
 
         <EditText
-            android:id="@+id/editTextText4"
+            android:id="@+id/txtTicketDescription"
             android:layout_width="370dp"
             android:layout_height="80dp"
             android:layout_marginTop="16dp"
@@ -91,10 +91,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+            app:layout_constraintTop_toBottomOf="@+id/txtTitleTicket" />
 
         <EditText
-            android:id="@+id/editTextText5"
+            android:id="@+id/txtAuthorTicket"
             android:layout_width="370dp"
             android:layout_height="46dp"
             android:layout_marginTop="24dp"
@@ -107,10 +107,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+            app:layout_constraintTop_toBottomOf="@+id/txtTicketDescription" />
 
         <EditText
-            android:id="@+id/editTextText6"
+            android:id="@+id/txtEmailAuthor"
             android:layout_width="370dp"
             android:layout_height="46dp"
             android:layout_marginTop="16dp"
@@ -123,10 +123,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+            app:layout_constraintTop_toBottomOf="@+id/txtAuthorTicket" />
 
         <EditText
-            android:id="@+id/editTextText7"
+            android:id="@+id/txtCreationDate"
             android:layout_width="370dp"
             android:layout_height="46dp"
             android:layout_marginTop="16dp"
@@ -139,10 +139,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText6" />
+            app:layout_constraintTop_toBottomOf="@+id/txtEmailAuthor" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnSendTicket"
             android:layout_width="370dp"
             android:layout_height="50dp"
             android:layout_marginTop="80dp"
@@ -152,7 +152,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.553"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
+            app:layout_constraintTop_toBottomOf="@+id/txtCreationDate" />
 
         <Button
             android:id="@+id/btnViewTickets"
@@ -165,11 +165,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.659"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/btnSendTicket"
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/txtStatus"
             android:layout_width="180dp"
             android:layout_height="44dp"
             android:layout_marginTop="16dp"
@@ -179,15 +179,15 @@
             android:inputType="text"
             android:textColor="#000000"
             android:textColorHint="#828282"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toStartOf="@+id/editTextText8"
+            app:layout_constraintBottom_toTopOf="@+id/btnSendTicket"
+            app:layout_constraintEnd_toStartOf="@+id/txtTicketEndDate"
             app:layout_constraintHorizontal_bias="0.741"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText7"
+            app:layout_constraintTop_toBottomOf="@+id/txtCreationDate"
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
-            android:id="@+id/editTextText8"
+            android:id="@+id/txtTicketEndDate"
             android:layout_width="180dp"
             android:layout_height="44dp"
             android:layout_marginTop="16dp"
@@ -198,9 +198,9 @@
             android:inputType="text"
             android:textColor="#000000"
             android:textColorHint="#828282"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintBottom_toTopOf="@+id/btnSendTicket"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText7"
+            app:layout_constraintTop_toBottomOf="@+id/txtCreationDate"
             app:layout_constraintVertical_bias="0.0" />
 
 
