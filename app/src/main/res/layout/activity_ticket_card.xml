@@ -42,7 +42,7 @@
             app:layout_constraintTop_toBottomOf="@id/txtTicketNum" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/txtTicketDes"
             android:layout_width="370dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
@@ -67,7 +67,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.555"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            app:layout_constraintTop_toBottomOf="@+id/txtTicketDes" />
 
         <TextView
             android:id="@+id/txtAuthorEmail"
@@ -125,11 +125,11 @@
             app:layout_constraintTop_toBottomOf="@+id/txtTicketStatus" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/btnDelete"
             android:layout_width="120dp"
             android:layout_height="58dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            app:layout_constraintEnd_toStartOf="@+id/btnEdit"
             app:layout_constraintHorizontal_bias="0.731"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtFinalDate"
@@ -137,7 +137,7 @@
             app:srcCompat="@drawable/ic_delete_data" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/btnEdit"
             android:layout_width="118dp"
             android:layout_height="59dp"
             android:layout_marginEnd="56dp"
