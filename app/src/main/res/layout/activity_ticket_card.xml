@@ -11,7 +11,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="425dp"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="#ffffff">
 
         <TextView
             android:id="@+id/txtTicketNum"
@@ -44,7 +45,7 @@
         <TextView
             android:id="@+id/txtTicketDes"
             android:layout_width="370dp"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="#828282"
