@@ -1,7 +1,10 @@
 package diana.padilla.aplicacioncruddiana
 
 import RecyclerViewHelpers.Adaptador
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,6 +27,13 @@ class activity_my_tickets : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val btnGoBack2 = findViewById<ImageView>(R.id.btnGoBack2)
+
+        btnGoBack2.setOnClickListener {
+            val ticketsFormScreen = Intent(this, activity_tickets_form::class.java)
+            startActivity(ticketsFormScreen)
         }
 
         val rcvTickets = findViewById<RecyclerView>(R.id.rcvTickets)
@@ -54,6 +64,13 @@ class activity_my_tickets : AppCompatActivity() {
             }
 
             return ticketsList
+        }
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val newTickets = gettingTickets()
+            withContext(Dispatchers.IO){
+                (rcvTickets.adapter as? Adaptador)?.updateList(newTickets)
+            }
         }
 
         CoroutineScope(Dispatchers.IO).launch {

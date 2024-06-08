@@ -33,4 +33,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="1.0" />
 
+    <ImageView
+        android:id="@+id/btnGoBack2"
+        android:layout_width="36dp"
+        android:layout_height="33dp"
+        app:layout_constraintBottom_toTopOf="@+id/rcvTickets"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.490"
+        app:srcCompat="@drawable/ic_back_arrow" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
