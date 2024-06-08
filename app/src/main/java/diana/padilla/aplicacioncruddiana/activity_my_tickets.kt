@@ -44,7 +44,7 @@ class activity_my_tickets : AppCompatActivity() {
             val objConexion = ClaseConexion().cadenaConexion()
 
             val statement = objConexion?.createStatement()
-            val resultSet = statement?.executeQuery("SELECT * FROM Tickets")!!
+            val resultSet = statement?.executeQuery("SELECT * FROM Tickets ORDER BY creation_date ASC, ticket_number DESC")!!
 
             val ticketsList = mutableListOf<Tickets>()
 

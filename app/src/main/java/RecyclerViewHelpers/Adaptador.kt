@@ -3,12 +3,14 @@ package RecyclerViewHelpers
 import android.provider.ContactsContract.Data
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import diana.padilla.aplicacioncruddiana.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import modelo.ClaseConexion
 import modelo.Tickets
 
@@ -16,6 +18,12 @@ class Adaptador(var Data: List<Tickets>):RecyclerView.Adapter<ViewHolder>() {
 
     fun updateList(newList: List<Tickets>){
         Data = newList
+        notifyDataSetChanged()
+    }
+
+    fun updateScreen(ticket_number: String, newticket_status: String){
+        val index = Data.indexOfFirst { it.ticket_number == ticket_number }
+        Data[index].ticket_status = newticket_status
         notifyDataSetChanged()
     }
 
@@ -37,6 +45,21 @@ class Adaptador(var Data: List<Tickets>):RecyclerView.Adapter<ViewHolder>() {
         Data = dataList.toList()
         notifyItemRemoved(position)
         notifyDataSetChanged()
+    }
+
+    fun updateData(newTicket_status: String, ticket_number: String){
+        GlobalScope.launch(Dispatchers.IO) {
+            val objConexion = ClaseConexion().cadenaConexion()
+
+            val updateTicket = objConexion?.prepareStatement("update Tickets set ticket_status = ? where ticket_number = ?")!!
+            updateTicket.setString(1, newTicket_status)
+            updateTicket.setString(2, ticket_number)
+            updateTicket.executeQuery()
+
+            withContext(Dispatchers.Main){
+                updateScreen(ticket_number, newTicket_status)
+            }
+        }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_ticket_card, parent, false)
@@ -74,6 +97,29 @@ class Adaptador(var Data: List<Tickets>):RecyclerView.Adapter<ViewHolder>() {
             val dialog = builder.create()
             dialog.show()
         }
-    }
 
+        holder.btnEdit.setOnClickListener {
+            val context = holder.itemView.context
+
+            val builder = AlertDialog.Builder(context)
+
+            builder.setTitle("Update")
+            builder.setMessage("Do you want to update the ticket status?")
+
+            val textBox = EditText(context)
+            textBox.setHint(item.ticket_status)
+            builder.setView(textBox)
+
+            builder.setPositiveButton("Update"){dialog, which ->
+                updateData(textBox.text.toString(), item.ticket_number)
+            }
+
+            builder.setNegativeButton("Cancel"){dialog, which ->
+                dialog.dismiss()
+            }
+
+            val dialog = builder.create()
+            dialog.show()
+        }
+    }
 }
